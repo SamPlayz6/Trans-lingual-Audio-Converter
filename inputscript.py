@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import filedialog
-import yt_dlp
+# import yt_dlp
 import os
 from openai import OpenAI
 client = OpenAI(api_key="sk-None-jB9OBvGOXBWVHo0Z4Yu8T3BlbkFJEHEtK8V4N3cpjTQ2mWH6")
@@ -11,19 +11,19 @@ def select_file():
     file_path = filedialog.askopenfilename(filetypes=[("Audio files", "*.mp3 *.wav *.ogg")])
     return file_path
 
-def download_youtube_audio(url):
-    ydl_opts = {
-        'format': 'bestaudio/best',
-        'postprocessors': [{
-            'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'mp3',
-            'preferredquality': '192',
-        }],
-        'outtmpl': 'output/%(title)s.%(ext)s'
-    }
-    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-        info = ydl.extract_info(url, download=True)
-        return os.path.join('output', f"{info['title']}.mp3")
+# def download_youtube_audio(url):
+#     ydl_opts = {
+#         'format': 'bestaudio/best',
+#         'postprocessors': [{
+#             'key': 'FFmpegExtractAudio',
+#             'preferredcodec': 'mp3',
+#             'preferredquality': '192',
+#         }],
+#         'outtmpl': 'output/%(title)s.%(ext)s'
+#     }
+#     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+#         info = ydl.extract_info(url, download=True)
+#         return os.path.join('output', f"{info['title']}.mp3")
 
 def get_input():
     print("Choose input method:")
@@ -35,7 +35,7 @@ def get_input():
         return select_file()
     elif choice == '2':
         url = input("Enter YouTube URL: ")
-        return download_youtube_audio(url)
+        # return download_youtube_audio(url)
     else:
         print("Invalid choice. Exiting.")
         exit()

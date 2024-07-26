@@ -1,6 +1,8 @@
 Download OpenAI API:
 pip install --upgrade openai
-pip install tkinter yt-dlp
+pip install tkinter
+pip install pydub
+pip install yt-dlp
 
 
 How to set you API key in a domain:
