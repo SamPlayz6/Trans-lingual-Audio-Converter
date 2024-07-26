@@ -40,7 +40,7 @@ def get_input():
         print("Invalid choice. Exiting.")
         exit()
 
-def get_target_language(inputText):
+def get_source_language(inputText):
     inputCommand = client.chat.completions.create(
     model="gpt-4o-mini",
     messages=[
@@ -50,3 +50,16 @@ def get_target_language(inputText):
     )
 
     return input(inputCommand)
+
+def output_requested_language_input_prompt(inputText):
+    source_language = get_source_language(inputText)
+
+    input_prompt = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=[
+        {"role": "system", "content": f"You always answer in {source_language}"},
+        {"role": "user", "content": f"Answer only, 'Input your target language' in {source_language}. nd with ': ' also"}
+    ]
+    )
+
+    return input_prompt
