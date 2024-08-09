@@ -1,5 +1,8 @@
 from openai import OpenAI
-client = OpenAI(api_key="sk-None-jB9OBvGOXBWVHo0Z4Yu8T3BlbkFJEHEtK8V4N3cpjTQ2mWH6")
+
+api_key = "" # Insert your own OpenAI API key here
+
+client = OpenAI(api_key)
 
 completion = client.chat.completions.create(
   model="gpt-4o-mini",
