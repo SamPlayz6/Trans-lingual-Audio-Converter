@@ -2,7 +2,8 @@ from openai import OpenAI
 from pydub import AudioSegment
 import os
 
-client = OpenAI(api_key="sk-None-jB9OBvGOXBWVHo0Z4Yu8T3BlbkFJEHEtK8V4N3cpjTQ2mWH6")
+api_key = os.getenv('OPENAI_API_KEY')
+client = OpenAI(api_key)
 
 def chunk_text(text, max_length=4000):
     return [text[i:i+max_length] for i in range(0, len(text), max_length)]

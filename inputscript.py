@@ -3,7 +3,10 @@ from tkinter import filedialog
 # import yt_dlp
 import os
 from openai import OpenAI
-client = OpenAI(api_key="sk-None-jB9OBvGOXBWVHo0Z4Yu8T3BlbkFJEHEtK8V4N3cpjTQ2mWH6")
+
+api_key = os.environ.get('OPENAI_API_KEY')
+
+client = OpenAI(api_key)
 
 def select_file():
     root = tk.Tk()
